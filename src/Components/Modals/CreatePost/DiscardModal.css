@@ -1,0 +1,19 @@
+.modal-enter {
+    transform: scale(5);
+    opacity: 0;
+  }
+  .modal-enter-active {
+    transform: scale(1);
+    opacity: 1;
+    transition: transform 300ms, opacity 300ms;
+  }
+  .modal-exit {
+    transform: scale(0);
+    opacity: 1;
+  }
+  .modal-exit-active {
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 300ms, opacity 300ms;
+  }
+  
