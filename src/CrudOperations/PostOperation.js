@@ -6,7 +6,6 @@ import axios from 'axios'
 
 
 export const CreatePostOperation = async (payload) => {
-  console.log("ghuss gayaaa");
 
 
 
@@ -53,13 +52,12 @@ export const CreatePostOperation = async (payload) => {
     );
 
 
-    console.log("yeha tak aabhi gaya");
 
     let data = await response.json();
     console.log(data);
 
     if (data) {
-      alert("Jai Ho!!!!")
+      alert("Posted")
     }
 
     console.log("success hua hoga");

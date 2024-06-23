@@ -31,7 +31,7 @@ const App = () => {
             token: response.token,
             userId: response.userId,
             email: response.email,
-            ragistered: response.registered,
+            ragistered: response.ragistered,
             userName: response.userName,
             Profileimage: response.Profileimage
           }));
@@ -56,6 +56,7 @@ const App = () => {
 
 
   const ragistered = useSelector((state) => state.auth.ragistered);
+  console.log(ragistered);
   const userId = useSelector((state) => state.auth.userId);
 
 
@@ -72,8 +73,10 @@ const App = () => {
         const UserProfile = await GetUserName({ userId });
         const all_Likes =  await Get_Likes_AllPostId({MyuserId: userId})
 
+        console.log(UserProfile);
 
-        if (UserProfile && UserProfile[0].UserName) {
+
+        if (UserProfile.length>0) {
           dispatch(update({
             userName: UserProfile[0].UserName,
             Profileimage: UserProfile[0].ProfileImageToken
@@ -97,7 +100,9 @@ const App = () => {
         }
         else {
 
-            console.log("not working");
+
+
+            console.log("not working , userprofile is empty");
           
 
 

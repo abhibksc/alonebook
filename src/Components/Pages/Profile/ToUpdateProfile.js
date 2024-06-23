@@ -39,18 +39,16 @@ const Profile = () => {
 
     // Check if "user" exists in localStorage
     const data = localStorage.getItem("user");
-    console.log(data);
     if (data) {
       try {
         let response = JSON.parse(data);
-        console.log(response);
 
         dispatch(
           signup({
             token: response.token,
             userId: response.userId,
             email: response.email,
-            ragistered: response.registered,
+            ragistered: response.ragistered,
             userName: response.userName,
           })
         );
@@ -63,11 +61,7 @@ const Profile = () => {
   }, []);
 
   useEffect(() => {
-    console.log(UserNameToggle);
-
     if (UserNameToggle) {
-      console.log(UserNameToggle);
-
       const fun = async () => {
         let ProfileImg = await GetProfileImage({ userId });
         if (ProfileImg && UserName && userId) {
@@ -92,8 +86,20 @@ const Profile = () => {
 
   useEffect(() => {
     const UpdateImg = async () => {
+      console.log(imgFile);
+      console.log(userId);
+      console.log(UserName);
+      console.log(ragistered);
+      console.log();
+
       if (toggle) {
         if (imgFile !== null && imgFile && userId && UserName && ragistered) {
+          console.log(imgFile);
+          console.log(userId);
+          console.log(UserName);
+          console.log(ragistered);
+          console.log();
+
           const data = await UpdateProfileImage({
             Name: profileName,
             userId,
@@ -118,7 +124,10 @@ const Profile = () => {
   }, [toggle]);
 
   const onchangeImage = async (e) => {
+    console.log("chala");
+    console.log(e.target.files[0]);
     setImageFile(e.target.files[0]);
+
     setToggle(true);
   };
 
@@ -145,12 +154,27 @@ const Profile = () => {
     fun();
   };
 
+  const handleCross = async() => {
+
+    let ProfileImg = await GetProfileImage({ userId });
+
+
+    if(ProfileImg === "Please set profile pic"){
+      alert("Please Set Profile Pic, It will take some seconds..")
+    }
+    else{
+
+      navigate("/Dashboard/Home");
+    }
+    
+  };
+
   return (
     <div className="div_14 relative z-30">
       {/* for Laptop */}
       <CloseOutlinedIcon
         className=" relative  md:top-9 md:left-[1300px]  top-5"
-        onClick={(e) => navigate("/Dashboard/Home")}
+        onClick={handleCross}
       />
 
       <div className=" hidden flex-col  md:flex ">

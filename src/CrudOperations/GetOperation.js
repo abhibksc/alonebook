@@ -314,6 +314,7 @@ export const GetUserName = async ({ userId }) => {
 
 
     let response = await data.json();
+    console.log(response);
 
     if (response !== null) {
         let arr = [];
@@ -363,6 +364,7 @@ export const GetProfileImage = async ({ userId }) => {
     
             }
             else {
+                return "Please set profile pic";
                 alert("Please Set Profile Pic")
             }
     

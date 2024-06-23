@@ -34,16 +34,10 @@ const SignupModal = () => {
 
 
       
-
-      // const data = GetAllData();
-      // console.log(data);
     const data =  await UpdateProfile({UserName : userNameeeee ,userId,ragistered});
-    console.log(data);
-
-    console.log(userNameeeee);
 
 
-    // dispatch the userName on redux
+
 
 
     
@@ -52,7 +46,6 @@ const SignupModal = () => {
       navigate("/Dashboard/ToUpdateProfile")
     }
 
-      // navigate("/Dashboard/ToUpdateProfile")
 
 
 
@@ -68,14 +61,12 @@ const SignupModal = () => {
 
 
 
-  console.log("signup" + "   " + sig);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (mail !== '' && pass !== '' && UserName !== '') {
 
       const checkUserName = await userIdChecker({UserName});
-      console.log(checkUserName);
 
       if(checkUserName){
 
@@ -93,7 +84,6 @@ const SignupModal = () => {
           }
         );
         let data = await response.json();
-        console.log(data);
 
 
         if (data.error) {
@@ -126,7 +116,6 @@ const SignupModal = () => {
           localStorage.setItem("user", JSON.stringify(DataStore));
 
 
-          // dispatch(signupCheck())
           dispatch(update({
             userName : UserName
           }))

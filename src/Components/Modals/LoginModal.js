@@ -36,7 +36,7 @@ const LoginModal = () => {
             email: data.email,
             userId: data.localId,
             token: data.idToken,
-            registered: data.registered,
+            ragistered: data.registered,
             userName: userName[0].UserName,
             Profileimage: ProfilePic,
           };

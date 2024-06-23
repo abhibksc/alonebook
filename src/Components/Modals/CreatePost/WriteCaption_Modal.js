@@ -68,13 +68,11 @@ const WriteCaption_Modal = () => {
 
     e.preventDefault();
 
+    alert("dont Panic, It will take some seconds just wait..");
 
 
 
-    console.log(userName);
-    console.log(Profileimage);
-    console.log(userId);
-    console.log(HandlePostedImages);
+
 
 
 
@@ -85,6 +83,7 @@ const WriteCaption_Modal = () => {
       const imgEndPoint = await CreatePostOperation({ userName, Profileimage, userId, HandlePostedImages, Caption })
 
       dispatch(HandleImg(""))
+  
       navigate("/Dashboard/Home")
 
       console.log(imgEndPoint);
