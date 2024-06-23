@@ -50,42 +50,38 @@ const Profile = () => {
 
 
 
-  useEffect(()=>{
-
-    if (localStorage.length = 1) {
-      const data = localStorage.getItem("user");
-      if (data) {
-        try {
-          let response = JSON.parse(data);
-          console.log(response);
-
-       
-
-
-
-
+  useEffect(() => {
+    console.log("checking");
   
-             dispatch(signup({
+    // Check if "user" exists in localStorage
+    const data = localStorage.getItem("user");
+    console.log(data);
+    if (data) {
+      try {
+        let response = JSON.parse(data);
+        console.log(response);
   
-              token : response.token,
-              userId : response.userId,
-              email : response.email,
-              ragistered : response.ragistered,
-              userName : response.userName,
       
-            
+        dispatch(signup({
+
+          token : response.token,
+          userId : response.userId,
+          email : response.email,
+          ragistered : response.registered,
+          userName : response.userName,
   
-            }))
+        
+
+        }))
   
-  
-        } catch (e) {
-          console.error("Failed to parse JSON:", e);
-        }
-      } else {
-        console.log("No data found for key 'user'.");
+        fun();
+      } catch (e) {
+        console.error("Failed to parse JSON:", e);
       }
+    } else {
+      console.log("No data found for key 'user'.");
     }
-   },[localStorage.length])
+  }, []);
 
  
 
