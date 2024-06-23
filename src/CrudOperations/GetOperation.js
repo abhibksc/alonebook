@@ -485,9 +485,7 @@ export const GetProfileImage = async ({ userId }) => {
 
         {
             method: "GET",
-            headers: {
-                'Authorization': `Bearer ${userId}`,
-              },
+            
         }
 
     );
