@@ -13,7 +13,7 @@ const LoginModal = () => {
     if (Email !== '' && pass !== '') {
       try {
         let response = await fetch(
-          "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=YOUR_API_KEY",
+          "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAZtVpewu85FHwCQgRT4spwjWVCzyB5Fj0",
           {
             method: "POST",
             body: JSON.stringify({

@@ -39,7 +39,7 @@ const App = () => {
               token : response.token,
               userId : response.userId,
               email : response.email,
-              ragistered : response.ragistered,
+              ragistered : response.registered,
               userName : response.userName,
               Profileimage : response.Profileimage
   
