@@ -70,13 +70,6 @@ const WriteCaption_Modal = () => {
 
     alert("dont Panic, It will take some seconds just wait..");
 
-
-
-
-
-
-
-
     if (userName && HandlePostedImages && Caption && userId && Profileimage) {
 
 

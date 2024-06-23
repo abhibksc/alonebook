@@ -1,13 +1,6 @@
 import ReactDOM from 'react-dom';
 
-// import { useEffect, useState } from 'react';
-// import { Link, Navigate, useNavigate } from 'react-router-dom';
-// import { useDispatch, useSelector } from "react-redux";
-// import { signIn, signup, signupCheck, messages, update } from "../../Store/LoginSignUpSlice"
-// import { login } from '../../Store/LoginSignUpSlice';
-// import { GetAllData } from '../../CrudOperations/GetOperation';
-// import { useAllDataFetch } from '../Hooks/useAllDataFetch';
-// import { addCreatedPost } from '../../Store/MenuBarSlices';
+
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';

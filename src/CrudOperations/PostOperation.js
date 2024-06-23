@@ -66,17 +66,13 @@ export const CreatePostOperation = async (payload) => {
 
 
   const { userName, Profileimage, userId, HandlePostedImages, Caption } = payload;
-  console.log(HandlePostedImages);
 
 
 
   const CaptionPost = async ({ Imgtoken, imgName, userName, Caption, userId }) => {
 
 
-    console.log(Imgtoken);
-    console.log(userName);
-    console.log(Caption);
-    console.log(userId);
+   
 
     let response = await fetch(`${DbUrl}${userId}/createpost/.json`,
       {

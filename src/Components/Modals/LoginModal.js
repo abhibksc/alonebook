@@ -3,8 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { GetProfileImage, GetUserName } from '../../CrudOperations/GetOperation';
 
 const LoginModal = () => {
-  const [Email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
+  const [Email, setEmail] = useState("abhi123@gmail.com");
+  const [pass, setPass] = useState("abhishek");
   const navigate = useNavigate();
 
   const handleForm = async (e) => {

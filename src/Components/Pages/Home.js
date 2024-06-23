@@ -303,7 +303,7 @@ const Home = () => {
                     type="text"
                     className="w-96 focus:border-none focus:outline-none"
                     placeholder="Add a Comment..."
-                    // value={CommentChanges.Comment}
+                    value={CommentChanges.Comment}
                     onChange={(e) =>
                       setCommentChanges({
                         Comment: e.target.value,

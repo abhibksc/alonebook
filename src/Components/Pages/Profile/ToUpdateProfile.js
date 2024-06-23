@@ -160,7 +160,7 @@ const Profile = () => {
 
 
     if(ProfileImg === "Please set profile pic"){
-      alert("Please Set Profile Pic, It will take some seconds..")
+      alert("Please Set Profile Pic, It will take some seconds just wait...")
     }
     else{
 
