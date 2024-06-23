@@ -91,6 +91,8 @@ const App = () => {
         const all_Likes =  await Get_Likes_AllPostId({MyuserId: userId})
         console.log(all_Likes);
 
+        console.log(UserProfile && UserProfile[0].UserName);
+
         if (UserProfile && UserProfile[0].UserName) {
           dispatch(update({
             userName: UserProfile[0].UserName,

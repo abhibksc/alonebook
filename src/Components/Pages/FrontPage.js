@@ -50,7 +50,7 @@ const FrontPage = () => {
 
             className="flex flex-col   gap-4 md:gap-8 md:my-4">
 
-            <img className="w-[375px] object-cover h-[352.84px]  rounded-[6px] shadow-md shadow-black md:w-[400] md:h[400px] mx-auto" src="https://shorturl.at/UHmB9" alt="" />
+            <img className="w-[375px] object-cover   rounded-[6px] shadow-md shadow-black md:w-[400] md:h[400px] mx-auto" src="https://shorturl.at/UHmB9" alt="" />
             <h1 className="text-center text-5xl mt-6 font-customMyFont ">Let’s connect with each other</h1>
             <p className="text-center text-[#919191]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
 

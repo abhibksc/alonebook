@@ -52,6 +52,8 @@ const WriteCaption_Modal = () => {
 
   const [Caption, setCaption] = useState('');
   const [discardToggle, setdiscardToggle] = useState(false);
+  const [ShimmerToggle, setShimmerToggle] = useState(false);
+
 
 
   const handleFileChange = (event) => {
@@ -122,8 +124,14 @@ const WriteCaption_Modal = () => {
             <h1 className="text-3xl text-center font-bold mb-5 md:mb-0">Create Post</h1>
             <textarea onChange={handleFileChange} className='bg-transparent focus:border-none focus:outline-none' id="description" name="description" placeholder="Write a Caption..."></textarea>
 
+       
+
+
+
+
 
           </div>
+          
 
           <button className=' w-10 mx-auto h-10 text-xl '>Post</button>
 
@@ -143,7 +151,8 @@ const WriteCaption_Modal = () => {
           unmountOnExit
         >
 
-          <Discard_Modal onClose={() => setdiscardToggle(false)} />
+          <Discard_Modal onClose={() => {setdiscardToggle(false)
+             setShimmerToggle(true)}} />
 
 
 

@@ -439,11 +439,18 @@ export const GetUserName = async ({ userId }) => {
 
     let url = `${DbUrl}/${userId}.json`;
 
-    const data = await fetch(`${DbUrl}/${userId}.json`,
+    console.log(userId);
+
+    const data = await fetch(`${DbUrl}${userId}.json`,
+
 
         {
             method: "GET",
+            // headers: {
+            //     'Authorization': `Bearer ${userId}`,
+            //   },
         }
+        
 
     );
 
@@ -460,6 +467,8 @@ export const GetUserName = async ({ userId }) => {
         arr = arr.reverse();
 
         const userNameFilter = arr.filter((ele) => ele.UserName);
+        console.log(userNameFilter);
+        console.log(arr);
 
 
         return userNameFilter
@@ -473,8 +482,12 @@ export const GetProfileImage = async ({ userId }) => {
 
     const data = await fetch(`${DbUrl}${userId}.json`,
 
+
         {
             method: "GET",
+            headers: {
+                'Authorization': `Bearer ${userId}`,
+              },
         }
 
     );
@@ -482,24 +495,36 @@ export const GetProfileImage = async ({ userId }) => {
 
     let response = await data.json();
 
-    if (response !== null) {
-        if (response.Profile.ProfileImageToken) {
+    if(response.error){
+        console.log(response.error);
+        return "not Assigned";
+    }
+    else{
 
-
-
-            return response.Profile.ProfileImageToken
-
+        if (response !== null) {
+            console.log(response);
+            if (response.Profile.ProfileImageToken) {
+    
+    
+    
+                return response.Profile.ProfileImageToken
+    
+            }
+            else {
+                alert("Please Set Profile Pic")
+            }
+    
+    
         }
         else {
-            alert("Please Set Profile Pic")
+            console.log("Haaan yehi chala");
+            alert("Please Signup")
         }
 
 
     }
-    else {
-        console.log("Haaan yehi chala");
-        alert("Please Signup")
-    }
+
+  
 
 
 
