@@ -31,10 +31,8 @@ const SideBar = () => {
   const [check, setCheck] = useState(false);
   const [hover, setHover] = useState(false);
   const [popup, setpopup] = useState(false);
-  const [Composerr, setComposerr] = useState(false);
   const dispatch = useDispatch();
   const login = useSelector((state) => state.IsLogin.login);
-  console.log(login);
 
 
 
@@ -87,15 +85,12 @@ const SideBar = () => {
 
 
 
-      // setHover(true);
-      // setCheck(true);
     }
     else if (check == true) {
 
 
       setTimeout(() => setCheck(true), 300);
 
-      // setCheck(true);
     }
 
   }

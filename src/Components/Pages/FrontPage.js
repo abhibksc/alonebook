@@ -26,18 +26,7 @@ const FrontPage = () => {
     const signupp = useSelector((state)=>state.IsLogin.signupp)
     
 
-    // log
 
-    console.log(token);
-    console.log(userId);
-    console.log(email);
-    console.log(password);
-    console.log(image);
-    console.log(name);
-    console.log(userName);
-    console.log(messages);
-    console.log(login);
-    console.log(signupp);
 
 
 

@@ -17,19 +17,14 @@ import { SetUpLikes } from '../Store/MenuBarSlices';
 const App = () => {
 
   const dispatch = useDispatch();
-  // const Profileimage = useSelector((state) => state.auth.Profileimage);
 
 
   useEffect(() => {
-    console.log("checking");
   
-    // Check if "user" exists in localStorage
     const data = localStorage.getItem("user");
-    console.log(data);
     if (data) {
       try {
         let response = JSON.parse(data);
-        console.log(response);
   
         const fun = async () => {
           dispatch(signIn({
@@ -61,29 +56,22 @@ const App = () => {
 
 
   const ragistered = useSelector((state) => state.auth.ragistered);
-  console.log(ragistered);
   const userId = useSelector((state) => state.auth.userId);
 
 
   useEffect(() => {
 
-    console.log("1st");
 
     const fun = async()=>{
-    console.log("1st");
 
 
       if (userId) {
-    console.log("1st");
-    console.log(userId);
 
 
 
         const UserProfile = await GetUserName({ userId });
         const all_Likes =  await Get_Likes_AllPostId({MyuserId: userId})
-        console.log(all_Likes);
 
-        console.log(UserProfile && UserProfile[0].UserName);
 
         if (UserProfile && UserProfile[0].UserName) {
           dispatch(update({

@@ -12,7 +12,6 @@ const HandlePostedImage = createSlice({
     reducers: {
         HandleImg(state, action) {
             console.log(action);
-            // state.CreatedPosts = action.payload;
             state.img = action.payload
         },
 
@@ -62,23 +61,6 @@ const AllPost = createSlice({
                     userId: "not Assigned"
                 },
                 Comment: [
-                    // {
-                    //     Commented_UserProfile: "not Assigned",
-                    //     Commented_UserName: "not Assigned",
-                    //     Comment: "not Assigned",
-                    //     Reply: [{
-                    //         Reply_UserProfile: "not Assigned",
-                    //         Reply_UserName: "not Assigned",
-                    //         Reply: "not Assigned",
-                    //         time: "not Assigned",
-                    //     }],
-
-                    //     Commented_Time: "not Assigned",
-                    //     Total_Like: 0,
-                    //     My_Like: false
-
-
-                    // }
                 ],
                 Total_Like: 0,
                 My_Like: false,
@@ -91,16 +73,13 @@ const AllPost = createSlice({
     },
     reducers: {
         addCreatedPost(state, action) {
-            console.log(action);
 
             state.posts = action.payload
 
         },
         dltCreatedPost(state, action) {
-            // state.CreatedPosts = state.CreatedPosts.filter((exe) => exe.id != action.payload);
         },
         AddTemporalPostImg(state, action) {
-            // state.temporary = action.payload
         },
        
 
@@ -136,12 +115,10 @@ const allLikes = createSlice({
         },
 
         SetUpLikes(state,action){
-            console.log(action);
             action.payload.map((ele)=>{
                 state.Likes[ele] = true
             })
 
-            // state.Likes[action.payload] = true;
         }
 
 

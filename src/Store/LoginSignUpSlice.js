@@ -23,7 +23,6 @@ const LoginSignUpSlice = createSlice({
     },
     reducers : {
         signup(state, action){
-          console.log(action.payload);
             state.token = action.payload.token;
             state.userId = action.payload.userId;
             state.email = action.payload.email;
@@ -56,12 +55,10 @@ const LoginSignUpSlice = createSlice({
             state.Profileimage = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr36oDwlyD6PdPl0pTr13oxXuU1wsQNX_YjA&s";
           },
           update(state, action) {
-            console.log(action);
             state.userName = action.payload.userName;
             state.Profileimage = action.payload.Profileimage;
           },
           updateName(state, action) {
-            console.log(action);
             state.name= action.payload.name;
             // 
           },
@@ -81,20 +78,8 @@ const Islogin = createSlice({
   reducers : {
     login(state){
       state.login = true
-    //  if(state.login){
-    //   state.login = false;
-    //  }
-    //  else{
-    //   state.login = true;
-    //  }
     },
     signupCheck(state){
-      // if(state.signupp){
-      //   state.signupp = false;
-      //  }
-      //  else{
-      //   state.signupp = true;
-      //  }
     }
   }
 })

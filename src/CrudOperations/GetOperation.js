@@ -115,83 +115,8 @@ export const GetAllData = async () => {
 
             }
 
-            //   if(response[key].message){
-
-            //     let arr = []
-
-            //     const obje = Object.values(response[key].Profile)
-            //     obje.forEach((ele) => {
-
-            //         console.log(ele.Caption);
-            //         console.log(ele.UserName);
-
-            //         arr.push({
-            //             UserName : ele.UserName,
-            //             UserProfile :  ele.UserProfile,
-            //         })
-            //     })
-
-            //     DataArray.push({arr})
-            //   }
-
-            //   if(response[key].message){
-
-            //     let arr = []
-
-            //     const obje = Object.values(response[key].Profile)
-            //     obje.forEach((ele) => {
-
-            //         console.log(ele.Caption);
-            //         console.log(ele.UserName);
-
-            //         arr.push({
-            //             UserName : ele.UserName,
-            //             UserProfile :  ele.UserProfile,
-            //         })
-            //     })
-
-            //     DataArray.push({arr})
-            //   }
-
-            //   if(response[key].message){
-
-            //     let arr = []
-
-            //     const obje = Object.values(response[key].Profile)
-            //     obje.forEach((ele) => {
-
-            //         console.log(ele.Caption);
-            //         console.log(ele.UserName);
-
-            //         arr.push({
-            //             UserName : ele.UserName,
-            //             UserProfile :  ele.UserProfile,
-            //         })
-            //     })
-
-            //     DataArray.push({arr})
-            //   }
-
-            //   if(response[key].message){
-
-            //     let arr = []
-
-            //     const obje = Object.values(response[key].Profile)
-            //     obje.forEach((ele) => {
-
-            //         console.log(ele.Caption);
-            //         console.log(ele.UserName);
-
-            //         arr.push({
-            //             UserName : ele.UserName,
-            //             UserProfile :  ele.UserProfile,
-            //         })
-            //     })
-
-            //     DataArray.push({arr})
-            //   }
+            
         }
-        // arr = arr.reverse();
 
 
         return DataArray
@@ -232,19 +157,12 @@ export const GetTotalPost = async () => {
             if (response[key].createpost) {
 
 
-                // const keysss = Object.key(response[key].createpost)
 
                 const createposttt = Object.values(response[key].createpost)
 
                 const keys = Object.keys(createposttt);
 
 
-                // for (const key in createposttt) {
-                //     if (Object.hasOwnProperty.call(object, key)) {
-                //         const element = object[key];
-
-                //     }
-                // }
 
 
 
@@ -266,40 +184,12 @@ export const GetTotalPost = async () => {
                         PostedImgtoken: ele.PostedImgtoken,
                         PostImgename: ele.PostImgename,
                         Caption: ele.Caption,
-                        //     UserDetails: {
-                        //       Profileimage: Profile[0],
-                        //       UserName: ele.UserName,
-                        //       userId : ele.userId
-                        //   },
                         UserDetails: {
                             Profileimage: ele.UserDetails.Profileimage,
                             UserName: ele.UserDetails.UserName,
                             userId: ele.UserDetails.userId
                         },
 
-
-                        //  Comment: [
-                        //         {
-                        //             Commented_UserProfile: comments.Commented_UserProfile,
-                        //             Commented_UserName: comments.Commented_UserName,
-                        //             Comment: comments.Comment,
-                        //             // Reply: [{
-                        //             //     Reply_UserProfile: comments.Reply[0].Reply_UserProfile,
-                        //             //     Reply_UserName: comments.Reply[0].Reply_UserName,
-                        //             //     Reply: comments.Reply[0].Reply,
-                        //             //     time: comments.Reply[0].time,
-                        //             //     Reply_Id: comments.Reply[0].Reply_Id
-
-                        //             // }],
-
-                        //             Commented_Time: comments.Commented_Time,
-                        //             Total_Like: comments.Total_Like,
-                        //             My_Like: comments.My_Like,
-                        //             Comment_Id: comments.Comment_Id,
-
-
-                        //         }
-                        //     ],
 
                         Total_Like: ele.Total_Like,
                         My_Like: ele.My_Like,
@@ -323,7 +213,6 @@ export const GetTotalPost = async () => {
                 })
             }
         }
-        // arr = arr.reverse();
 
 
         return arr
@@ -334,7 +223,6 @@ export const GetTotalPost = async () => {
 };
 
 export const GetComment = async ({ Commentie_PostId, Commentie_UserId }) => {
-    console.log("bhai chal rha");
 
     const commentsPath = `${Commentie_UserId}/createpost/${Commentie_PostId}/Comment`;
     const commentsRef = ref(db, commentsPath);
@@ -351,9 +239,6 @@ export const GetComment = async ({ Commentie_PostId, Commentie_UserId }) => {
         }, (error) => {
             reject(error);
         });
-
-        // Optionally, you might want to return the unsubscribe function to allow caller to clean up the listener
-        // return unsubscribe;
     });
 };
 
@@ -379,9 +264,7 @@ export const Get_Likes_AllPostId = async ({MyuserId}) => {
     for (let key in response) {
         if (response[key].createpost) {
             for (let keys in response[key].createpost) {
-                console.log(response[key].createpost[keys].LikedBy);
                 for (let keyss in response[key].createpost[keys].LikedBy) {
-                    console.log(response[key].createpost[keys].LikedBy[keyss].status);
                     if(keyss === MyuserId && response[key].createpost[keys].LikedBy[keyss].status){
                         arr.push(keys);
                     }
@@ -414,41 +297,16 @@ export const Get_Likes_AllPostId = async ({MyuserId}) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export const GetUserName = async ({ userId }) => {
 
     let url = `${DbUrl}/${userId}.json`;
 
-    console.log(userId);
 
     const data = await fetch(`${DbUrl}${userId}.json`,
 
 
         {
             method: "GET",
-            // headers: {
-            //     'Authorization': `Bearer ${userId}`,
-            //   },
         }
         
 
@@ -456,7 +314,6 @@ export const GetUserName = async ({ userId }) => {
 
 
     let response = await data.json();
-    console.log(response);
 
     if (response !== null) {
         let arr = [];
@@ -467,8 +324,6 @@ export const GetUserName = async ({ userId }) => {
         arr = arr.reverse();
 
         const userNameFilter = arr.filter((ele) => ele.UserName);
-        console.log(userNameFilter);
-        console.log(arr);
 
 
         return userNameFilter
@@ -500,7 +355,6 @@ export const GetProfileImage = async ({ userId }) => {
     else{
 
         if (response !== null) {
-            console.log(response);
             if (response.Profile.ProfileImageToken) {
     
     
@@ -515,7 +369,6 @@ export const GetProfileImage = async ({ userId }) => {
     
         }
         else {
-            console.log("Haaan yehi chala");
             alert("Please Signup")
         }
 
@@ -537,7 +390,6 @@ export const userIdChecker = async ({ UserName }) => {
 
     let userId = await fetch(`${DbUrl}.json`);
     let userIddata = await userId.json();
-    console.log(userIddata);
 
 
 
@@ -687,16 +539,9 @@ export const LikeChecker = async ({ userId, PostId, MyuserId }) => {
 
     let response = await data.json();
 
-    // if (response.error && response.error === "Invalid path: Invalid token in path") {
-    //     console.log("you are right");
-
-
-    // }
-    // console.log(response);
 
 
     if (response === true || response === false) {
-        // console.log(response);
 
         return response;
 
@@ -706,8 +551,6 @@ export const LikeChecker = async ({ userId, PostId, MyuserId }) => {
     else {
 
         const updateLike = await Update_Like({ userId, PostId, MyuserId, LikeStatus: false })
-        console.log(updateLike);
-        console.log("hiai he naa yr null hai yr");
 
     }
 
